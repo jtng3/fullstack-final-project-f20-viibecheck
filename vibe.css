@@ -33,6 +33,19 @@ body {
 #textPage, #formPage {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+#perpForm {
+    margin-left: 20px;
+}
+
+#rightArrow {
+    margin-right: -25px;
+}
+
+#leftArrow {
+    margin-left: -25px;
 }
 
 #rightPage {
