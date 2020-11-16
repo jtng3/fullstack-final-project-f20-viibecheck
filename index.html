@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Vibe Check</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="/vibe.css">
+        <script src="vibe.js"></script>
+    </head>
+    <body>
+        <div class = "container" id="navbar-container">
+            <div class = "row">
+            <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
+              <a class="navbar-brand" href="/index.html">Vibe Check</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fas fa-bars"></i></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="container" id="body-container">
+            <div class="card" id="body-card">
+                <div class="card-body">
+                    <h5 class="card-title">Welcome to Vibe Check</h5>
+                    <div class="container" id="form-container">
+                        <div id="leftPage">
+                            <div class="container" id="textPage">
+                                <p class="card-text" id="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                </p>
+                                <a><img src="/assets/arrow.png" onclick="switchToForm()" id="arrow"></a>
+                            </div>  
+                        </div>
+                        <div id="rightPage">
+                            <div class="container" id="formPage">
+                                <a><img src="/assets/arrow2.png" onclick="switchToText()" id="arrow"></a>
+                                <form id="perpForm">
+                                    <label for="perpName">Persons Name:</label>
+                                    <input type="text" id="perpName">
+                                </form>
+                            </div>
+                        </div> 
+                    </div>  
+                </div>
+            </div>
+        </div>  
+    </body>
+</html>

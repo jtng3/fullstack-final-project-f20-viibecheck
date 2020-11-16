@@ -1,0 +1,41 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #e7e7e7;
+}
+
+.navbar {
+    background-color: #e0b3ff; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#body-container {
+    margin-top: 10%;
+}
+
+#body-card {
+    border-radius: 10px;
+}
+
+#form-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-text {
+    flex-shrink: 1;
+}
+
+#textPage, #formPage {
+    display: flex;
+    flex-direction: row;
+}
+
+#rightPage {
+    display: none;
+    flex-direction: row;
+}
