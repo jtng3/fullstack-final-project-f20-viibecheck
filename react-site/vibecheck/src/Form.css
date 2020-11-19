@@ -1,16 +1,8 @@
-.container {
-  display: grid;
-  width: 50%;
-  border: 2px solid black;
-  padding: 25px;
-  grid-template-columns: 100%;
-  grid-template-rows: 25% 25% 25% 25%;
-}
 
 #nameContainer, #stateContainer, #phoneContainer {
   margin-bottom: 5px;
 }
 
-label {
+Button#submit {
   margin-right: 5px;
 }

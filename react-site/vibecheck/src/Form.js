@@ -1,13 +1,15 @@
 import './Form.css';
 import React from 'react';
+import { Form, Button } from 'react-bootstrap';
 
-class Form extends React.Component {  
+class VibeForm extends React.Component {  
   constructor(props) {
     super(props);
     this.state = {name: '', location: '', phone: ''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
@@ -22,17 +24,21 @@ class Form extends React.Component {
     alert('Name: ' + this.state.name + '\nState: ' + this.state.location + '\nPhone: ' + this.state.phone);
     event.preventDefault();
   }
+
+  handleReset() {
+    this.setState({name: '', location: '', phone: ''});
+  }
+
   render() {
     return (
-      <div class="container">
-      <form onSubmit={this.handleSubmit}>
-        <div id="nameContainer">
-          <label for="name">Name:</label>
-          <input type="text" name="name" id="nameInput" onChange={this.handleChange}></input>
-        </div>
-        <div id="stateContainer">
-        <label for="location" id="stateLabel">State:</label>
-        <select value={this.state.value} id="stateSelect" name="location" onChange={this.handleChange} required>
+      <Form onSubmit={this.handleSubmit} onReset={this.handleReset}>
+        <Form.Group id="nameContainer">
+          <Form.Label for="name">Name:</Form.Label>
+          <Form.Control type="text" name="name" id="nameInput" onChange={this.handleChange}></Form.Control>
+        </Form.Group>
+        <Form.Group id="stateContainer">
+        <Form.Label for="location" id="stateLabel">State:</Form.Label>
+        <Form.Control as="select" value={this.state.value} id="stateSelect" name="location" onChange={this.handleChange} required>
             <option value="AL">AL</option>
             <option value="AK">AK</option>
             <option value="AR">AR</option>	
@@ -84,18 +90,18 @@ class Form extends React.Component {
             <option value="WI">WI</option>	
             <option value="WV">WV</option>
             <option value="WY">WY</option>
-          </select>
-        </div>
-        <div id="phoneContainer">
-          <label for="phone">Phone (xxx-xxx-xxxx):</label>
-          <input onChange={this.handleChange} type="tel" id="phone" name="phone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></input>
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
-      </div>
+          </Form.Control>
+        </Form.Group>
+        <Form.Group id="phoneContainer">
+          <Form.Label for="phone">Phone (xxx-xxx-xxxx):</Form.Label>
+          <Form.Control onChange={this.handleChange} type="tel" id="phone" name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></Form.Control>
+        </Form.Group>
+        <Button id="submit" type="submit" value="Submit">Submit</Button>
+        <Button variant="outline-secondary" type="reset" value="Reset">Reset</Button>
+      </Form>
     )
   }
 }
 
-export default Form;
+export default VibeForm;
