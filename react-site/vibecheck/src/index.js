@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Form from './Form';
+import MainCard from './Card';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Form />
+    <MainCard />
   </React.StrictMode>,
   document.getElementById('root')
 );
