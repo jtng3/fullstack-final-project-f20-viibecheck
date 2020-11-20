@@ -7,12 +7,20 @@ const mongodb = require('mongodb');
 const mongodbClient = mongodb.MongoClient;
 const mongodb_connection_string = "mongodb+srv://viibeDBaccess:Sgr7y4ntzcqL3Rd@cluster.nfkr1.mongodb.net/School?retryWrites=true&w=majority";
 
+
+app.set('views', __dirname + 'express-pug/views');
+app.set('view engine', 'pug');
+
+
+
 app.use(
     parser.urlencoded({
         extended: false,
         limit: 1024,
-    })
+    }),
+    express.static(__dirname + '/public')
 );
+
 let Student = (p_name, p_age) => {
     return {name: p_name, age: p_age  };
 }
@@ -24,11 +32,26 @@ mongodbClient.connect(mongodb_connection_string,{
             const studentCollection = db.collection('Student');
 
 
-            app.get('/',(req,res) => {
+            app.get('/register',(req,res) => {
                 console.log(path.join(__dirname + '/register.html'));
                 res.sendFile(path.join(__dirname + '/register.html'));
             });
-            
+            app.get('/', (req,res) => {
+                console.log("main page");
+            })
+            app.get('/lists', (req,res) => {
+                // get list of students who registered
+                res.write("List of Student:");
+                res.write('<ol>');
+                studentCollection.find({}).toArray( (err,result) => {
+                    if(err) throw err;
+                    res.write(`<li> name: ${result.name} - age: ${result.age}`);
+                    console.log(result);
+                })
+                res.write('</ol>');
+                //res.end();
+                
+            })
             app.post('/submit', (req, res) => {
            
                 var student = Student(req.body.name, req.body.age);
