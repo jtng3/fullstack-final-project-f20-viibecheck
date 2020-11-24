@@ -1,0 +1,35 @@
+#text-card {
+    background-color: #d1d1d1;
+    border-radius: 15px;
+    height: 65vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 5vh;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+#form-card {
+    background-color: #d1d1d1;
+    border-radius: 15px;
+    height: 65vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 5vh;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+#search-card {
+    background-color: #d1d1d1;
+    border-radius: 15px;
+    height: 65vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 5vh;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
