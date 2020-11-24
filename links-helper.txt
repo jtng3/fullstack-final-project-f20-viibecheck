@@ -3,6 +3,9 @@ MongoDB Access: https://account.mongodb.com/account/login
 username: ntl2@pdx.eud
 password: pxkvtpm7FDKHX4g
 
+To interact with Database, I will introduce 2 types of flatforms: MongoDB Compass and Web Interface
+
+https://www.mongodb.com/try/download/compass 
 Cloud Provider: AWS
 MongoDB version: MongoDB 4.2
 
