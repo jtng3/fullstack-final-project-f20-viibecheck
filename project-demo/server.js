@@ -57,6 +57,9 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     // Submit a new Student
     // get student information from register form
     // insert to the database
+    
+    
+    
     app.post('/submit', (req, res) => {
            
         var student = Student(req.body.name, req.body.age);

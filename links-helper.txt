@@ -1,6 +1,6 @@
 
 MongoDB Access: https://account.mongodb.com/account/login
-username: ntl2@pdx.eud
+username: ntl2@pdx.edu
 password: pxkvtpm7FDKHX4g
 
 To interact with Database, I will introduce 2 types of flatforms: MongoDB Compass and Web Interface
