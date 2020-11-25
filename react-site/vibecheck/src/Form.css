@@ -6,3 +6,7 @@
 Button#submit {
   margin-right: 5px;
 }
+
+#result {
+  color: red;
+}

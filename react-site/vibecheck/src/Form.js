@@ -6,13 +6,15 @@ import axios from 'axios';
 class VibeForm extends React.Component {  
   constructor(props) {
     super(props);
-    this.state = {name: '', location: '', phone: ''};
+    this.state = {name: '', location: '', phone: '',response : ''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
+
   }
 
+  
   handleChange(event) {
     const target = event.target;
     const name = target.name;
@@ -31,9 +33,12 @@ class VibeForm extends React.Component {
                   phone : this.state.phone};
 
     axios.post('http://localhost:8080/createperp',{perp})
-          .then( res => {
-            console.log(res);
-            console.log(res.data);
+          .then( (res) => {
+            this.setState({ response : res.data });
+            alert(this.state.response);
+
+          }, (err) => {
+            alert(err);
           })
   
   }
@@ -113,6 +118,8 @@ class VibeForm extends React.Component {
         <Button id="submit" type="submit" value="Submit">Submit</Button>
         <Button variant="outline-secondary" type="reset" value="Reset">Reset</Button>
       </Form>
+
+      
     )
   }
 }
