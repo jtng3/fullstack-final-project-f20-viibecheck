@@ -76,6 +76,34 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
 
     });
 
+    // Lookup the perp and fill out an incident
+    app.post("/createincident", (req, res) => {
+        // look up the existing perp
+        // now I just assume that I have retrieved the perp
+        // it will be static since we are not done with frontend, so I will change this code
+        // to search a perp base on name and phone#
+
+        db.collection('Perp').findOne({'name' : "Jane", 'phone' : "971-533-0000"})
+                            .then((result) => {
+                                // check whether a student is in a list or not
+                                    if(!result){
+                                        // no perp exist
+                                        console.log("No Perp Found");
+                                        res.send("fail to create an incident due to no perp.");
+                                    }else{
+                                        // the perp existed
+                                        let perpId = result._id;
+                                        
+                                        db.collection('Incident').insertOne(newPerp, (err, res) => {
+                                            if(err) throw err;
+                                            console.log('one document inserted');
+                                        })
+                                        console.log(perpId);
+                                                                    //res.send(result);
+                                    }
+                            })
+        })
+
     // Search that entry whether it is existed in list or not
     // If not existed, insert that data to the database, send a successful message back to client
     // If existed, send a fail message back client
