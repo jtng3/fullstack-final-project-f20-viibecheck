@@ -47,31 +47,44 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     // If not existed, send a fail message back to client
     // If existed, send an object back client
     app.post('/search', (req, res) => {
-        
-        
-        db.collection('report').findOne({'fName' : req.body.report.fname, 'phone' : req.body.report.phone})
-                                                            .then((result) => {
-                                                                // check whether a student is in a list or not
-                                                                if(!result){
-                                                                    console.log("No Record Found");
-                                                                    res.send("No Record Found");
-                                                                }else{
-                                                                    console.log(result);
-                                                                    res.send(result);
-                                                                }
-                                                            })
+        var search = req.body.search;
+        console.log('data' + search);
+        var query = {'fname' : search.fName, 'lname' : search.lName, 'state' : search.state, 'phone' : search.phone };
+        db.collection('Report')
+            .find(query)
+            .toArray()
+            .then((result) => {
+                if(!result){
+                    console.log("No record found");
+                    res.send("The record isn't existed in database");
+                }else{
+                    console.log(result);
+                    res.send(result);
+                }
 
+            })                                        
     });
 
-    
     app.post("/createincident", (req, res) => {
+        
         var report = req.body.report;
         let newIncident = Incident(report.fName, report.lName, report.state, report.phone, report.year, report.work, report.school);
-        db.collection('report').insertOne(newIncident, (err, res) => {
-            if(err) throw err;
-            console.log('one document inserted');
-        })
-        res.send("Insert an Incident related with Perp succesfully!!!");
+        var query = {'fname' : report.fName,'lname': report.lName, 'state' : report.state, 'phone': report.phone, 'year': report.year, 'work' : report.work, 'school' : report.school };
+        db.collection('Report').findOne(query)
+                                .then((result) => {
+                                    if(!result){
+                                        console.log(result);
+                                        // No record found in database, insert new report
+                                        db.collection('Report').insertOne(newIncident, (err, res) => {
+                                            if(err) throw err;
+                                            console.log('one document inserted');
+                                        })
+                                        res.send("Insert an Incident related with Perp succesfully!!!");
+                                    }else{
+                                        res.send("A report has been inserted to the database.");
+                                    }
+                                })
+        
         
         
     })

@@ -22,7 +22,6 @@ class MainCard extends React.Component {
     handleOpen() {
         this.setState({ show: true })
     }
-
     render() {
         return(
         <Carousel interval={null}>
