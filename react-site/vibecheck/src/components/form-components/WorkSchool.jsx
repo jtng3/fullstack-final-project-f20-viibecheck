@@ -12,7 +12,6 @@ function WorkSchool(props) {
             id="workSelect"
             name="work"
             onChange={props.updateWork}
-            required
           >
             <option value=""></option>
             <option value="no">no</option>
@@ -27,7 +26,6 @@ function WorkSchool(props) {
             id="schoolSelect"
             name="school"
             onChange={props.updateSchool}
-            required
           >
             <option value=""></option>
             <option value="no">no</option>
