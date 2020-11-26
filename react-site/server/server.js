@@ -48,8 +48,8 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     // If existed, send an object back client
     app.post('/search', (req, res) => {
         
-        console.log(req.body.perp.name);
-        db.collection('Perp').findOne({'name' : req.body.perp.name, 'phone' : req.body.perp.phone})
+        
+        db.collection('report').findOne({'fName' : req.body.report.fname, 'phone' : req.body.report.phone})
                                                             .then((result) => {
                                                                 // check whether a student is in a list or not
                                                                 if(!result){
@@ -65,10 +65,9 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
 
     
     app.post("/createincident", (req, res) => {
-        console.log(req.body.incident);
         var report = req.body.report;
         let newIncident = Incident(report.fName, report.lName, report.state, report.phone, report.year, report.work, report.school);
-        db.collection('Incident').insertOne(newIncident, (err, res) => {
+        db.collection('report').insertOne(newIncident, (err, res) => {
             if(err) throw err;
             console.log('one document inserted');
         })
