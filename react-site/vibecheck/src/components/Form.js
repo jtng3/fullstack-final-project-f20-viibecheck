@@ -74,13 +74,12 @@ function VibeForm() {
       phone: phone,
       year: year,
       work: work,
-      school: school,
+      school: school
     };
 
-    axios.post("http://localhost:8080/createperp", { report }).then(
+    axios.post("http://localhost:8080/createincident", { report }).then(
       (res) => {
-        this.setState({ response: res.data });
-        alert(this.state.response);
+        alert(res.data);
       },
       (err) => {
         alert(err);
