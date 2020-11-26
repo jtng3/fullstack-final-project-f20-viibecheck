@@ -4,10 +4,15 @@ import MainCard from './Card';
 import NavigationBar from './Navbar';
 
 function App() {
-  return (
+
+    return (
+
     <>
         <NavigationBar />
         <MainCard />
     </>
 )};
+
+        
 export default App; 
+

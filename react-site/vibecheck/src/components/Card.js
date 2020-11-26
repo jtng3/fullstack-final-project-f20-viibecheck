@@ -49,6 +49,17 @@ class MainCard extends React.Component {
                             If you submit a report, we don't collect or store any information about you, it's fully anonymous for your protection.
                             <br/>
                             As a consequence of this, reports cannot be verified. 
+                            <br/><br/>
+                            <Button variant="outline-secondary" onClick={ this.handleOpen }>Take the Consent Quiz</Button>
+
+                            <Modal show={ this.state.show } onHide={ this.handleClose }>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Consent Quiz</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <Quiz />
+                                </Modal.Body>
+                            </Modal>
                         </Card.Text>
                     </Card.Body>
                 </Card>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+
 // This component will allow the user to see whether a person is in the database 
 // Currently it's identical to Form.js, but the functionality of handleSubmit will be slightly different. 
 // Thinking of having conditional rendering to display the results of the search
