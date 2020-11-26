@@ -3,8 +3,25 @@ import { Card, Carousel, CarouselItem, Button, Modal } from 'react-bootstrap';
 import './Card.css';
 import VibeForm from './Form.js';
 import Search from './Search';
+import Quiz from './Quiz';
 
 class MainCard extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state={ show: false }
+
+        this.handleClose = this.handleClose.bind(this);
+        this.handleOpen = this.handleOpen.bind(this);
+    }
+
+    handleClose() {
+        this.setState({ show: false })
+    }
+
+    handleOpen() {
+        this.setState({ show: true })
+    }
 
     render() {
         return(
