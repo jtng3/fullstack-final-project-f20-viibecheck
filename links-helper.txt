@@ -1,0 +1,28 @@
+
+MongoDB Access: https://account.mongodb.com/account/login
+username: ntl2@pdx.edu
+password: pxkvtpm7FDKHX4g
+
+To interact with Database, I will introduce 2 types of flatforms: MongoDB Compass and Web Interface
+
+https://www.mongodb.com/try/download/compass 
+Cloud Provider: AWS
+MongoDB version: MongoDB 4.2
+
+
+usernameDB: viibeDBaccess
+passwordDB: Sgr7y4ntzcqL3Rd
+
+database name: viibecheck <= we will continue on project with this database
+database demo: School <= I am going to do some demo with this database
+
+Run your connection string in your command line
+mongo "mongodb+srv://cluster.nfkr1.mongodb.net/<dbname>" --username viibeDBaccess
+
+=> This is how I connect to database if I replace <dbname> with viibecheck
+
+
+Some useful links to learn about MongoDB
+https://www.tutorialspoint.com/mongodb/mongodb_environment.htm -- Install MongoDB on Window and Navigate to MongoDB and Working with the Database, Collection, Query Document, Update Document and Delete Document.
+https://zellwk.com/blog/crud-express-mongodb/ -- How to start using Express to work with Mongodb
+https://www.mongodb.com/try -- Mongodb installation

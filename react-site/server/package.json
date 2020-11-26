@@ -1,0 +1,24 @@
+{
+  "name": "project-demo",
+  "version": "1.0.0",
+  "description": "Example of how to use CRUD with MongoDB",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.15",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Nhan Le",
+  "license": "MIT"
+}
