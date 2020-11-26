@@ -7,6 +7,7 @@ import Name from "./form-components/Name";
 import Phone from "./form-components/Phone";
 import Year from "./form-components/Year";
 import WorkSchool from "./form-components/WorkSchool";
+import Details from "./form-components/Details";
 
 /* class VibeForm extends React.Component {  
   constructor(props) {
@@ -18,6 +19,9 @@ import WorkSchool from "./form-components/WorkSchool";
     this.handleReset = this.handleReset.bind(this);
 
   } */
+
+//for some reason this has to be in the upper scope, which I am not sure I like.
+let checkedDetails = [];
 function VibeForm() {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
@@ -26,6 +30,10 @@ function VibeForm() {
   const [year, setYear] = useState("");
   const [work, setWork] = useState("hello");
   const [school, setSchool] = useState("world");
+  const [details, setDetails] = useState("");
+
+  //instead of here
+  //var checkedDetails = [];
 
   function updateFName(event) {
     setFName(event.target.value);
@@ -48,6 +56,27 @@ function VibeForm() {
   function updateSchool(event) {
     setSchool(event.target.value);
   }
+  function updateDetails(e) {
+    const value = e.target.name;
+    //console.log("Old checkedDetails: " + checkedDetails);
+    //console.log("checked is: " + e.target.checked) 
+    if (e.target.checked) {
+      console.log("push value is: " + value)
+      checkedDetails.push(value);
+      console.log("pushed")
+    } else {
+      console.log("remove value is: " + value)
+      const index = checkedDetails.indexOf(value);
+      console.log("remove index is: " + index)
+      if (index > -1) {
+        checkedDetails.splice(index, 1);
+        console.log("spliced")
+      }
+    }
+    //console.log("New checkedDetails: " + checkedDetails);
+    setDetails(checkedDetails);
+  }
+
   function handleSubmit(event) {
     alert(
       "First Name: " +
@@ -63,7 +92,9 @@ function VibeForm() {
         "\nWork Related: " +
         work +
         "\nSchool Related: " +
-        school
+        school +
+        "\nDetails : " +
+        details
     );
     event.preventDefault();
 
@@ -75,6 +106,7 @@ function VibeForm() {
       year: year,
       work: work,
       school: school,
+      details: details,
     };
 
     axios.post("http://localhost:8080/createperp", { report }).then(
@@ -95,7 +127,7 @@ function VibeForm() {
 
         <div class="form-row">
           <div class="col-2">
-          <LocationSelect updateLocation={updateLocation} />
+            <LocationSelect updateLocation={updateLocation} />
           </div>
           <div class="col">
             <Phone updatePhone={updatePhone} />
@@ -107,6 +139,7 @@ function VibeForm() {
         </div>
 
         <WorkSchool updateWork={updateWork} updateSchool={updateSchool} />
+        <Details updateDetails={updateDetails} />
 
         <Button id="submit" type="submit" value="Submit">
           Submit
@@ -117,4 +150,3 @@ function VibeForm() {
 }
 
 export default VibeForm;
-
