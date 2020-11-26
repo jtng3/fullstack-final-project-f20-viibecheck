@@ -91,29 +91,26 @@ function VibeForm() {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-
         <Name updateFName={updateFName} updateLName={updateLName} />
 
         <div class="form-row">
           <div class="col-2">
-              <LocationSelect updateLocation={updateLocation} />
+          <LocationSelect updateLocation={updateLocation} />
+          </div>
+          <div class="col">
+            <Phone updatePhone={updatePhone} />
           </div>
 
           <div class="col">
-              <Phone updatePhone={updatePhone} />
-          </div>
-
-          <div class="col">
-              <Year updateYear={updateYear} />
+            <Year updateYear={updateYear} />
           </div>
         </div>
 
         <WorkSchool updateWork={updateWork} updateSchool={updateSchool} />
-        
+
         <Button id="submit" type="submit" value="Submit">
           Submit
         </Button>
-
       </Form>
     </div>
   );

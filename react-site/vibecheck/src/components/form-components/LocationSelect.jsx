@@ -7,20 +7,11 @@ function LocationSelect(props) {
       <Form.Label for="location" id="stateLabel">
         State:
       </Form.Label>
-
-{/* <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select> */}
-
-      <select class="form-control"
+      <Form.Control
         as="select"
-        id="stateselect"
+        id="stateSelect"
         name="location"
-        onchange={props.updateLocation}
+        onChange={props.updateLocation}
         required
       >
         <option value="AL">AL</option>
@@ -74,7 +65,7 @@ function LocationSelect(props) {
         <option value="WI">WI</option>
         <option value="WV">WV</option>
         <option value="WY">WY</option>
-      </select>
+      </Form.Control>
     </Form.Group>
   );
 }

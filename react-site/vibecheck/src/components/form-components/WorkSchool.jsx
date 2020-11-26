@@ -11,11 +11,10 @@ function WorkSchool(props) {
             as="select"
             id="workSelect"
             name="work"
-            onchange={props.updateWork}
+            onChange={props.updateWork}
             required
           >
-            <option selected />
-            <option value="test"></option>
+            <option value=""></option>
             <option value="no">no</option>
             <option value="yes">yes</option>
           </Form.Control>
@@ -27,10 +26,10 @@ function WorkSchool(props) {
             as="select"
             id="schoolSelect"
             name="school"
-            onchange={props.updateSchool}
+            onChange={props.updateSchool}
             required
           >
-            <option value="test" />
+            <option value=""></option>
             <option value="no">no</option>
             <option value="yes">yes</option>
           </Form.Control>
