@@ -1,8 +1,13 @@
-import './Form.css';
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import axios from 'axios';
-import LocationSelect from './LocationSelect';
+import "./Form.css";
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import axios from "axios";
+import LocationSelect from "./form-components/LocationSelect";
+import Name from "./form-components/Name";
+import Phone from "./form-components/Phone";
+import Year from "./form-components/Year";
+import WorkSchool from "./form-components/WorkSchool";
+
 /* class VibeForm extends React.Component {  
   constructor(props) {
     super(props);
@@ -13,74 +18,105 @@ import LocationSelect from './LocationSelect';
     this.handleReset = this.handleReset.bind(this);
 
   } */
- function VibeForm() {
-   const [name, setName] = useState("");
-   const [location, setLocation] = useState("AL");
-   const [phone, setPhone] = useState("");
+function VibeForm() {
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+  const [location, setLocation] = useState("AL");
+  const [phone, setPhone] = useState("");
+  const [year, setYear] = useState("");
+  const [work, setWork] = useState("hello");
+  const [school, setSchool] = useState("world");
 
-   function updateName(event) {
-     setName(event.target.value);
-   }
-   function updateLocation(event) {
-     setLocation(event.target.value);
-   }
-   function updatePhone(event) {
-     setPhone(event.target.value);
-   }
-   function handleSubmit(event) {
-     alert('Name: ' + name + '\nState: ' + location + '\nPhone: ' + phone);
-     event.preventDefault();
+  function updateFName(event) {
+    setFName(event.target.value);
+  }
+  function updateLName(event) {
+    setLName(event.target.value);
+  }
+  function updateLocation(event) {
+    setLocation(event.target.value);
+  }
+  function updatePhone(event) {
+    setPhone(event.target.value);
+  }
+  function updateYear(event) {
+    setYear(event.target.value);
+  }
+  function updateWork(event) {
+    setWork(event.target.value);
+  }
+  function updateSchool(event) {
+    setSchool(event.target.value);
+  }
+  function handleSubmit(event) {
+    alert(
+      "First Name: " +
+        fName +
+        "\nLast Name: " +
+        lName +
+        "\nIncident Location(State): " +
+        location +
+        "\nPhone: " +
+        phone +
+        "\nIncident Year: " +
+        year +
+        "\nWork Related: " +
+        work +
+        "\nSchool Related: " +
+        school
+    );
+    event.preventDefault();
 
-     const perp = {
-       name: name,
-       state: location,
-       phone: phone,
-     };
+    const report = {
+      fName: fName,
+      lName: lName,
+      state: location,
+      phone: phone,
+      year: year,
+      work: work,
+      school: school,
+    };
 
-     axios.post("http://localhost:8080/createperp", { perp }).then(
-       (res) => {
-         this.setState({ response: res.data });
-         alert(this.state.response);
-       },
-       (err) => {
-         alert(err);
-       }
-     );
-   }
+    axios.post("http://localhost:8080/createperp", { report }).then(
+      (res) => {
+        this.setState({ response: res.data });
+        alert(this.state.response);
+      },
+      (err) => {
+        alert(err);
+      }
+    );
+  }
 
-   return (
-     <div>
-       <Form onSubmit={handleSubmit}>
-         <Form.Group id="nameContainer">
-           <Form.Label for="name">Name:</Form.Label>
-           <Form.Control
-             onChange={updateName}
-             type="text"
-             name="name"
-             id="nameInput"
-             placeholder="Name"
-           ></Form.Control>
-         </Form.Group>
-         <Form.Group id="stateContainer">
-           <Form.Label for="location" id="stateLabel">
-             State:
-           </Form.Label>
-           <LocationSelect onChange={updateLocation} />
-        </Form.Group>
-        <Form.Group id="phoneContainer">
-          <Form.Label for="phone">Phone (xxx-xxx-xxxx):</Form.Label>
-          <Form.Control onChange={updatePhone} type="tel" id="phone" name="phone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></Form.Control>
-        </Form.Group>
-           <Button id="submit" type="submit" value="Submit">
-             Submit
-           </Button>
-           <Button variant="outline-secondary" type="reset" value="Reset">
-             Reset
-           </Button>
-       </Form>
-     </div>
-   );
- }
+  return (
+    <div>
+      <Form onSubmit={handleSubmit}>
 
- export default VibeForm;
+        <Name updateFName={updateFName} updateLName={updateLName} />
+
+        <div class="form-row">
+          <div class="col-2">
+              <LocationSelect updateLocation={updateLocation} />
+          </div>
+
+          <div class="col">
+              <Phone updatePhone={updatePhone} />
+          </div>
+
+          <div class="col">
+              <Year updateYear={updateYear} />
+          </div>
+        </div>
+
+        <WorkSchool updateWork={updateWork} updateSchool={updateSchool} />
+        
+        <Button id="submit" type="submit" value="Submit">
+          Submit
+        </Button>
+
+      </Form>
+    </div>
+  );
+}
+
+export default VibeForm;
