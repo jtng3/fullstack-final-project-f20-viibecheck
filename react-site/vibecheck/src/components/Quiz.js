@@ -1,4 +1,5 @@
 import React from 'react';
+import './Quiz.css';
 
 // Some questions have been adapted from https://www.nsvrc.org/saam/consent-quiz
 
@@ -110,9 +111,9 @@ class Quiz extends React.Component {
                             </div>
                             <div className='question-text'>{ questions[this.state.currentQuestion].questionText }</div>
                         </div>
-                        <div className='answer-section'>
+                        <div className='answer-section' id="answerBox">
                             {questions[this.state.currentQuestion].answerOptions.map((answerOption, index) => (
-		                    <button onClick={ () => this.handleClick(answerOption.answerText, answerOption.isCorrect) } >{answerOption.answerText}</button>
+		                    <button id="answer" onClick={ () => this.handleClick(answerOption.answerText, answerOption.isCorrect) } >{answerOption.answerText}</button>
 	                        ))}
                         </div>
                     </>
