@@ -1,7 +1,7 @@
-import React from "react";
-import "./App.css";
-import MainCard from "./Card";
-import NavigationBar from "./Navbar";
+import React from 'react';
+import './App.css';
+import MainCard from './Card';
+import NavigationBar from './Navbar';
 
 function App() {
   return (
