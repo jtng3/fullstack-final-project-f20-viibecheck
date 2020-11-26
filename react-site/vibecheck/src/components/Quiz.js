@@ -100,8 +100,6 @@ class Quiz extends React.Component {
     render() {
         return (
             <div className='app'>
-                {/* HINT: replace "false" with logic to display the 
-          score when the user has answered all the questions */}
                 {( this.state.hasCompleted ) ? (
                     <div className='score-section'>You scored {this.state.score} out of {questions.length}</div>
                     ) : (
