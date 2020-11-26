@@ -1,0 +1,23 @@
+#answerBox {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
+
+#answer{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: #888888;
+    color: white;
+    padding: 10px;
+    border: solid 2px white;
+}
+
+#answer:hover, #answer:active {
+    background-color: #696969;
+    margin-top: 7px;
+    margin-bottom: 3px;
+}
