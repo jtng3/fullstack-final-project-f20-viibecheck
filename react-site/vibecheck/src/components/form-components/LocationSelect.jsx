@@ -1,14 +1,17 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import React from "react";
+import { Form } from "react-bootstrap";
 
-
-  function LocationSelect(props) {
-    return (
+function LocationSelect(props) {
+  return (
+    <Form.Group id="stateContainer">
+      <Form.Label for="location" id="stateLabel">
+        State:
+      </Form.Label>
       <Form.Control
         as="select"
         id="stateSelect"
         name="location"
-        onChange={props.onChange}
+        onChange={props.updateLocation}
         required
       >
         <option value="AL">AL</option>
@@ -63,7 +66,8 @@ import { Form } from 'react-bootstrap';
         <option value="WV">WV</option>
         <option value="WY">WY</option>
       </Form.Control>
-    );
-  }
+    </Form.Group>
+  );
+}
 
 export default LocationSelect;
