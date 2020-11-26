@@ -39,8 +39,7 @@ import LocationSelect from './LocationSelect';
 
      axios.post("http://localhost:8080/createperp", { perp }).then(
        (res) => {
-         this.setState({ response: res.data });
-         alert(this.state.response);
+         alert(res.data);
        },
        (err) => {
          alert(err);

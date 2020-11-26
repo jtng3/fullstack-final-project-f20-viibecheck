@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Carousel, CarouselItem, Button, Modal  } from 'react-bootstrap';
+import { Card, Carousel, CarouselItem, Button, Modal } from 'react-bootstrap';
 import './Card.css';
 import VibeForm from './Form.js';
 import Search from './Search';

@@ -28,8 +28,6 @@ class Search extends React.Component {
       handleSubmit(event) {
         alert('Name: ' + this.state.name + '\nState: ' + this.state.location + '\nPhone: ' + this.state.phone);
         event.preventDefault();
-
-
         const perp = {name : this.state.name,
           state : this.state.location, 
           phone : this.state.phone};

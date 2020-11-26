@@ -5,11 +5,9 @@ import NavigationBar from "./Navbar";
 
 function App() {
   return (
-    <div>
-      <NavigationBar />
-      <MainCard />
-    </div>
-  );
-}
-
-export default App;
+    <>
+        <NavigationBar />
+        <MainCard />
+    </>
+)};
+export default App; 
