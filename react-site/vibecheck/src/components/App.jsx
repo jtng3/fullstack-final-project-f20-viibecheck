@@ -6,10 +6,13 @@ import NavigationBar from './Navbar';
 function App() {
 
     return (
+
     <>
         <NavigationBar />
         <MainCard />
     </>
 )};
 
-export default App;
+        
+export default App; 
+
