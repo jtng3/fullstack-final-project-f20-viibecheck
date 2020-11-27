@@ -6,13 +6,13 @@ function Details(props) {
 
   return (
     <Form.Group id="detailsContainer">
-      <Form.Label for="location" id="stateLabel">
+      <Form.Label htmlFor="location" id="stateLabel">
         Details (select all that apply):
       </Form.Label>
       {detailTypes.map((detailType, index) => (
         <div key={index}>
           <input
-            class="mr-2"
+            className="mr-2"
             type="checkbox"
             name={detailType.id}
             onChange={props.updateDetails}

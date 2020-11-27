@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 function Year(props) {
   return (
             <Form.Group id="yearContainer">
-              <Form.Label for="year" id="yearLabel">
+              <Form.Label htmlFor="year" id="yearLabel">
                 Incident Year (XXXX):
               </Form.Label>
               <Form.Control

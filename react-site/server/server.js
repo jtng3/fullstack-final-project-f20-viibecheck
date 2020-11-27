@@ -64,7 +64,7 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
                     response = Response(responseMessage, null);
                     res.send(response);
                 }else{
-                    responseMessage = "The record is existed in database";
+                    responseMessage = "The record is exists in database";
                     console.log(responseMessage);
                     response = Response(responseMessage, result);
                     res.send(response);

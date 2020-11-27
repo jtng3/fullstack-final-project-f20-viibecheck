@@ -4,9 +4,9 @@ import { Form } from "react-bootstrap";
 function Name(props) {
   return (
         <Form.Group id="nameContainer">
-          <div class="form-row">
-            <div class="col">
-              <Form.Label for="fName">First Name:</Form.Label>
+          <div className="form-row">
+            <div className="col">
+              <Form.Label htmlFor="fName">First Name:</Form.Label>
               <Form.Control
                 onChange={props.updateFName}
                 type="text"
@@ -15,8 +15,8 @@ function Name(props) {
                 placeholder="First Name"
               ></Form.Control>
             </div>
-            <div class="col">
-              <Form.Label for="lName">Last Name:</Form.Label>
+            <div className="col">
+              <Form.Label htmlFor="lName">Last Name:</Form.Label>
               <Form.Control
                 onChange={props.updateLName}
                 type="text"
