@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 function LocationSelect(props) {
   return (
     <Form.Group id="stateContainer">
-      <Form.Label for="location" id="stateLabel">
+      <Form.Label htmlFor="location" id="stateLabel">
         State:
       </Form.Label>
       <Form.Control

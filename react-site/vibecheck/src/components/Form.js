@@ -125,15 +125,15 @@ function VibeForm() {
       <Form onSubmit={handleSubmit}>
         <Name updateFName={updateFName} updateLName={updateLName} />
 
-        <div class="form-row">
-          <div class="col-2">
+        <div className="form-row">
+          <div className="col-2">
             <LocationSelect updateLocation={updateLocation} />
           </div>
-          <div class="col">
+          <div className="col">
             <Phone updatePhone={updatePhone} />
           </div>
 
-          <div class="col">
+          <div className="col">
             <Year updateYear={updateYear} />
           </div>
         </div>
