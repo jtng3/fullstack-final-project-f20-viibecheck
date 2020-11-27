@@ -26,10 +26,12 @@ app.use(parser.json());
 
 
 
-let Incident = (p_fname, p_lname, p_state, p_phone, p_year, p_work, p_school ) => {
-    return {fname : p_fname, lname: p_lname, state: p_state, phone: p_phone, year: p_year, work : p_work, school : p_school};
+let Incident = (p_fname, p_lname, p_state, p_phone, p_year, p_work, p_school,p_details ) => {
+    return {fname : p_fname, lname: p_lname, state: p_state, phone: p_phone, year: p_year, work : p_work, school : p_school, details : p_details};
 };
-
+let Response = (p_message, p_object) => {
+    return {message : p_message, object : p_object};
+}
 
 mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnifiedTopology: true}, (err, client) => {
     console.log('Connected to Database');
@@ -48,19 +50,24 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     // If existed, send an object back client
     app.post('/search', (req, res) => {
         var search = req.body.search;
-        console.log('data' + search);
-        //var query = {'fname' : search.fName, 'lname' : search.lName, 'state' : search.state, 'phone' : search.phone };
         var query = {'fname' : search.fName, 'lname' : search.lName, 'phone' : search.phone };
+        var response = null;
+        var responseMessage = "";
         db.collection('Report')
             .find(query)
             .toArray()
             .then((result) => {
-                if(!result){
-                    console.log("No record found");
-                    res.send("The record isn't existed in database");
+                if(result.length == 0){
+                    responseMessage = "No record found";
+                    console.log(responseMessage);
+
+                    response = Response(responseMessage, null);
+                    res.send(response);
                 }else{
-                    console.log(result);
-                    res.send(result);
+                    responseMessage = "The record is existed in database";
+                    console.log(responseMessage);
+                    response = Response(responseMessage, result);
+                    res.send(response);
                 }
 
             })                                        
@@ -69,8 +76,8 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     app.post("/createincident", (req, res) => {
         
         var report = req.body.report;
-        let newIncident = Incident(report.fName, report.lName, report.state, report.phone, report.year, report.work, report.school);
-        var query = {'fname' : report.fName,'lname': report.lName, 'state' : report.state, 'phone': report.phone, 'year': report.year, 'work' : report.work, 'school' : report.school };
+        let newIncident = Incident(report.fName, report.lName, report.state, report.phone, report.year, report.work, report.school, report.details);
+        var query = {'fname' : report.fName,'lname': report.lName, 'state' : report.state, 'phone': report.phone, 'year': report.year, 'work' : report.work, 'school' : report.school, 'details' : report.details };
         db.collection('Report').findOne(query)
                                 .then((result) => {
                                     if(!result){
