@@ -4,9 +4,9 @@ import { Form } from "react-bootstrap";
 function WorkSchool(props) {
   return (
     <Form.Group id="workAndSchoolContainer">
-      <div class="form-row">
-        <div class="col">
-          <Form.Label for="work">Work Related? </Form.Label>
+      <div className="form-row">
+        <div className="col">
+          <Form.Label htmlFor="work">Work Related? </Form.Label>
           <Form.Control
             as="select"
             id="workSelect"
@@ -19,8 +19,8 @@ function WorkSchool(props) {
           </Form.Control>
         </div>
 
-        <div class="col">
-          <Form.Label for="school">School Related? </Form.Label>
+        <div className="col">
+          <Form.Label htmlFor="school">School Related? </Form.Label>
           <Form.Control
             as="select"
             id="schoolSelect"

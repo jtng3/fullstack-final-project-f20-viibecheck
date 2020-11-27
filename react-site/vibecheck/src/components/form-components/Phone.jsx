@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 function Phone(props) {
   return (
             <Form.Group id="phoneContainer">
-              <Form.Label for="phone">Phone (xxx-xxx-xxxx):</Form.Label>
+              <Form.Label htmlFor="phone">Phone (xxx-xxx-xxxx):</Form.Label>
               <Form.Control
                 onChange={props.updatePhone}
                 type="tel"

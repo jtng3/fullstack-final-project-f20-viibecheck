@@ -152,8 +152,8 @@ function Search() {
       <Form onSubmit={handleSubmit}>
         <Name updateFName={updateFName} updateLName={updateLName} />
 
-        <div class="form-row">
-          <div class="col">
+        <div className="form-row">
+          <div className="col">
             <Phone updatePhone={updatePhone} />
           </div>
         </div>
