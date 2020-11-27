@@ -129,12 +129,15 @@ function Search() {
             throw new Error(JSON.stringify(error));
           });
         }
-        return res.data;
+        //this is if results is not received as "object" within "data"
+        //return res.data;
+        // this will work with nhan's modified code showing message and object within data
+        return res.data.object;
       })
       .then((data) => {
         setSearchResults(data);
         setResFetchError(null);
-        setResFetchLoading(false);
+        setResFetchLoading(false)
         console.log("we are in second: " + JSON.stringify(data));
       })
       .catch((err) => {
