@@ -49,7 +49,8 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     app.post('/search', (req, res) => {
         var search = req.body.search;
         console.log('data' + search);
-        var query = {'fname' : search.fName, 'lname' : search.lName, 'state' : search.state, 'phone' : search.phone };
+        //var query = {'fname' : search.fName, 'lname' : search.lName, 'state' : search.state, 'phone' : search.phone };
+        var query = {'fname' : search.fName, 'lname' : search.lName, 'phone' : search.phone };
         db.collection('Report')
             .find(query)
             .toArray()
