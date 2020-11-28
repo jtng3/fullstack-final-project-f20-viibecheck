@@ -121,7 +121,7 @@ function Search() {
     setResFetchLoading(true);
 
     axios
-      .post("https://viibecheckserver.herokuapp.com/search", { search })
+      .post("https://localhost:8080/search", { search })
       .then((res) => {
         console.log("axios response: " + JSON.stringify(res));
         if (res.statusText !== "OK") {
@@ -137,7 +137,7 @@ function Search() {
       .then((data) => {
         setSearchResults(data);
         setResFetchError(null);
-        setResFetchLoading(false)
+        setResFetchLoading(false);
         console.log("we are in second: " + JSON.stringify(data));
       })
       .catch((err) => {
