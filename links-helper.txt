@@ -10,8 +10,8 @@ Cloud Provider: AWS
 MongoDB version: MongoDB 4.2
 
 
-usernameDB: viibeDBaccess
-passwordDB: Sgr7y4ntzcqL3Rd
+usernameDB: admin
+passwordDB: E4BRyACJknsXnuKm
 
 database name: viibecheck <= we will continue on project with this database
 database demo: School <= I am going to do some demo with this database
