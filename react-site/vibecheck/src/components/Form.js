@@ -110,7 +110,7 @@ function VibeForm() {
 
     };
 
-    axios.post("http://localhost:8080/createincident", { report }).then(
+    axios.post("https://viibecheck.herokuapp.com/createincident", { report }).then(
       (res) => {
         alert(res.data);
       },

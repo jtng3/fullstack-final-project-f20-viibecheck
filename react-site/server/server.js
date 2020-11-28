@@ -6,7 +6,7 @@ const parser = require('body-parser');
 const mongodb = require('mongodb');
 const url = require('url');
 const mongodbClient = mongodb.MongoClient;
-const mongodb_connection_string = "mongodb+srv://viibeDBaccess:Sgr7y4ntzcqL3Rd@cluster.nfkr1.mongodb.net/ViiberCheck?retryWrites=true&w=majority";
+const mongodb_connection_string = "mongodb+srv://admin:bGEkB9typOafM69Y@vibecheck.nfkr1.mongodb.net/test?authSource=admin&replicaSet=atlas-62q9dx-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
 const cors = require('cors');
 app.set('views', __dirname + 'express-pug/views');
 app.set('view engine', 'pug');
@@ -31,9 +31,13 @@ let Incident = (p_fname, p_lname, p_state, p_phone, p_year, p_work, p_school,p_d
 };
 let Response = (p_message, p_object) => {
     return {message : p_message, object : p_object};
+
+}
+let Perp = (p_fname, p_lname, p_state, p_phone) => {
+    return {fname : p_fname, lname : p_lname, state : p_state, phone : p_phone};
 }
 
-mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnifiedTopology: true}, (err, client) => {
+mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnifiedTopology: true,useNewUrlParser : true}, (err, client) => {
     console.log('Connected to Database');
     const db = client.db('ViiberCheck');
    
@@ -101,15 +105,20 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     // If not existed, insert that data to the database, send a successful message back to client
     // If existed, send a fail message back client
     
-    app.post('/createperp', (req, res) => {
+    app.get('/testcreateperp', (req, res) => {
         
-        console.log(req.body.perp);
-        db.collection('Perp').findOne({'name' : req.body.perp.name,'state' : req.body.perp.state, 'phone' : req.body.perp.phone})
+
+        var fname = "Adam";
+        var lname = "Smith";
+        var state = "OR";
+        var phone = "971-892-9872";
+        
+        db.collection('Perp').findOne({'fname' : fname, 'lname' : lname, 'state' : state, 'phone' : phone})
                                 .then((result) => {
                                     if(!result){
                                         // not found duplicated
                                         //create new perp
-                                        var newPerp = Perp(req.body.perp.name,req.body.perp.state,req.body.perp.phone);
+                                        var newPerp = Perp(fname,lname,state,phone);
         
                                         console.log(newPerp);
                                         // insert a data to database
@@ -118,9 +127,9 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
                                             console.log('one document inserted');
                                         })
                                         
-                                        res.send("Inserted Successfully!!!");
+                                        res.write("Inserted Successfully!!!");
                                     }else{
-                                        res.send("Existed that Perp!!!");
+                                        res.write("Existed that Perp!!!");
                                     }
                                 })
         

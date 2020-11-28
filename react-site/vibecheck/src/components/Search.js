@@ -13,7 +13,7 @@ function Search() {
   //handle search results
   const [resFetchLoading, setResFetchLoading] = useState(false);
   const [resFetchError, setResFetchError] = useState(null);
-  const [searchResults, setSearchResults] = useState(undefined);
+  const [searchResults, setSearchResults] = useState("");
 
   const testData = [
     {
@@ -82,7 +82,7 @@ function Search() {
 
     if (resFetchLoading) {
       content = <div label="Loading...">LOADING...</div>;
-    } else if (!resFetchLoading && !resFetchError && searchResults !== undefined) {
+    } else if (!resFetchLoading && !resFetchError) {
       content = <div>{riskDisplay()}</div>;
     } else if (!resFetchLoading && resFetchError) {
       content = <div>Search Failed.</div>;
@@ -121,7 +121,7 @@ function Search() {
     setResFetchLoading(true);
 
     axios
-      .post("http://localhost:8080/search", { search })
+      .post("https://viibecheckserver.herokuapp.com/search", { search })
       .then((res) => {
         console.log("axios response: " + JSON.stringify(res));
         if (res.statusText !== "OK") {
