@@ -17,14 +17,16 @@
 .card{
     border-radius: 15px;
     height: auto;
-    margin-top: 3vh;
+    width: 95vw; 
+/*     margin-top: 3vh;
     margin-left: 3vw;
-    margin-right: 3vw;
+    margin-right: 3vw; */
+    margin: 5vw;
     background-color: #ffffff;
     padding-top: 5vh;
     padding-bottom: 5vh;
-    padding-left: 20vw;
-    padding-right: 20vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
     border: solid grey;
 }
 

@@ -67,7 +67,7 @@ class MainCard extends React.Component {
                 <Card id='form-card'>
                     <Card.Body>
                         <Card.Title>
-                        VibeCheck Form
+                        New Incident Report
                         </Card.Title>
                         <VibeForm />
                     </Card.Body>

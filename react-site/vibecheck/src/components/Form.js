@@ -126,14 +126,13 @@ function VibeForm() {
         <Name updateFName={updateFName} updateLName={updateLName} />
 
         <div className="form-row">
-          <div className="col-2">
+          <div className="col-md">
             <LocationSelect updateLocation={updateLocation} />
           </div>
-          <div className="col">
+          <div className="col-md">
             <Phone updatePhone={updatePhone} />
           </div>
-
-          <div className="col">
+          <div className="col-md">
             <Year updateYear={updateYear} />
           </div>
         </div>
