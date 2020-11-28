@@ -4,9 +4,9 @@ import { Form } from "react-bootstrap";
 function LocationSelect(props) {
   return (
     <Form.Group id="stateContainer">
-      <Form.Label htmlFor="location" id="stateLabel">
+{/*       <Form.Label htmlFor="location" id="stateLabel">
         State:
-      </Form.Label>
+      </Form.Label> */}
       <Form.Control
         as="select"
         id="stateSelect"
@@ -14,6 +14,9 @@ function LocationSelect(props) {
         onChange={props.updateLocation}
         required
       >
+        <option value="" selected disabled>
+          Incident Location
+        </option>
         <option value="AL">AL</option>
         <option value="AK">AK</option>
         <option value="AR">AR</option>
