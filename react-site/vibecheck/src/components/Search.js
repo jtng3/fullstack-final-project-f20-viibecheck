@@ -13,7 +13,7 @@ function Search() {
   //handle search results
   const [resFetchLoading, setResFetchLoading] = useState(false);
   const [resFetchError, setResFetchError] = useState(null);
-  const [searchResults, setSearchResults] = useState("");
+  const [searchResults, setSearchResults] = useState(undefined);
 
   const testData = [
     {
@@ -82,7 +82,7 @@ function Search() {
 
     if (resFetchLoading) {
       content = <div label="Loading...">LOADING...</div>;
-    } else if (!resFetchLoading && !resFetchError) {
+    } else if (!resFetchLoading && !resFetchError && searchResults !== undefined) {
       content = <div>{riskDisplay()}</div>;
     } else if (!resFetchLoading && resFetchError) {
       content = <div>Search Failed.</div>;
