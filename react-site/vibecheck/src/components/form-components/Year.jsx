@@ -4,14 +4,15 @@ import { Form } from "react-bootstrap";
 function Year(props) {
   return (
             <Form.Group id="yearContainer">
-              <Form.Label htmlFor="year" id="yearLabel">
+{/*               <Form.Label htmlFor="year" id="yearLabel">
                 Incident Year (XXXX):
-              </Form.Label>
+              </Form.Label> */}
               <Form.Control
                 onChange={props.updateYear}
                 type="text"
                 name="year"
                 id="yearInput"
+                placeholder="Incident Year (YYYY)"
                 pattern="[0-9]{4}"
               ></Form.Control>
             </Form.Group>
