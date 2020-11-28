@@ -50,7 +50,7 @@ function Search() {
 
     console.log("SearchResults:  " + JSON.stringify(searchResults));
 
-    let resultsLength = searchResults.length;
+    let resultsLength = searchResults ? searchResults.length : 0;
     console.log("resultsLength: " + resultsLength);
 
     function riskDisplay() {
@@ -82,7 +82,7 @@ function Search() {
 
     if (resFetchLoading) {
       content = <div label="Loading...">LOADING...</div>;
-    } else if (!resFetchLoading && !resFetchError && searchResults) {
+    } else if (!resFetchLoading && !resFetchError) {
       content = <div>{riskDisplay()}</div>;
     } else if (!resFetchLoading && resFetchError) {
       content = <div>Search Failed.</div>;
