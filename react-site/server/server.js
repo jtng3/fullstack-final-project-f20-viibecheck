@@ -80,6 +80,7 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
     app.post("/createincident", (req, res) => {
         
         var report = req.body.report;
+        console.log(report);
         let newIncident = Incident(report.fName, report.lName, report.state, report.phone, report.year, report.work, report.school, report.details);
         var query = {'fname' : report.fName,'lname': report.lName, 'state' : report.state, 'phone': report.phone, 'year': report.year, 'work' : report.work, 'school' : report.school, 'details' : report.details };
         db.collection('Report').findOne(query)
