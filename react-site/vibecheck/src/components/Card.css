@@ -17,7 +17,7 @@
 .card{
     border-radius: 15px;
     height: auto;
-    width: 90vw; 
+    width: 95vw; 
 /*     margin-top: 3vh;
     margin-left: 3vw;
     margin-right: 3vw; */
@@ -28,7 +28,6 @@
     padding-left: 15vw;
     padding-right: 15vw;
     border: solid grey;
-    text-align: justify;
 }
 
 /* For Mobile */

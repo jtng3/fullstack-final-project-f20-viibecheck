@@ -22,12 +22,12 @@ function Details(props) {
           </label> */}
           <input
             type="checkbox"
-            className="chk-btn"
+            class="chk-btn"
             id={detailType.id}
             name={detailType.id}
             onChange={props.updateDetails}
           />
-          <label className="w-100" for={detailType.id}>{detailType.content}</label>
+          <label class="w-100" for={detailType.id}>{detailType.content}</label>
         </div>
       ))}
     </Form.Group>
