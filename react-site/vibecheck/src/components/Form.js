@@ -108,7 +108,7 @@ function VibeForm() {
   }
 
   function handleSubmit(event) {
-    alert(
+    console.log(
       "First Name: " +
         fName +
         "\nLast Name: " +
