@@ -27,7 +27,7 @@ function Details(props) {
             name={detailType.id}
             onChange={props.updateDetails}
           />
-          <label for={detailType.id}>{detailType.content}</label>
+          <label class="w-100" for={detailType.id}>{detailType.content}</label>
         </div>
       ))}
     </Form.Group>
