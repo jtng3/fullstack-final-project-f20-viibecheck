@@ -32,8 +32,38 @@ function VibeForm() {
   const [school, setSchool] = useState("world");
   const [details, setDetails] = useState("");
 
+  //handle search results
+  const [resFetchLoading, setResFetchLoading] = useState(false);
+  const [resFetchError, setResFetchError] = useState(null);
+  const [insertResults, setInsertResults] = useState(undefined);
   //instead of here
   //var checkedDetails = [];
+
+  const renderInsertResults = () => {
+    
+    let content = (
+      <div>
+        
+      </div>
+    );
+    console.log("InsertResults:  " + JSON.stringify(insertResults));
+
+    
+
+    function insertDisplay(){
+      return insertResults;
+    
+    }
+    
+    if (resFetchLoading) {
+      content = <div label="Loading..." class="alert alert-info">LOADING...</div>;
+    } else if (!resFetchLoading && !resFetchError && insertResults !== undefined) {
+      content = <div class="alert alert-success">{insertDisplay()}</div>;
+    } else if (!resFetchLoading && resFetchError) {
+      content = <div class="alert alert-danger">Insert Failed.</div>;
+    }
+    return content;
+  };
 
   function updateFName(event) {
     setFName(event.target.value);
@@ -109,15 +139,20 @@ function VibeForm() {
       details: details,
 
     };
+    setResFetchLoading(true);
 
-    axios.post("https://viibecheck.herokuapp.com/createincident", { report }).then(
-      (res) => {
-        alert(res.data);
-      },
-      (err) => {
-        alert(err);
-      }
-    );
+    axios.post("http://localhost:8080/createincident", { report })
+    .then((res) => {
+        console.log(res.data);
+        setInsertResults(res.data);
+        setResFetchError(null);
+        setResFetchLoading(false);
+      })
+    .catch((err) => {
+        console.warn(err);
+        setResFetchError(err);
+        setResFetchLoading(false);
+    })
   }
 
   return (
@@ -143,6 +178,9 @@ function VibeForm() {
         <Button id="submit" type="submit" value="Submit">
           Submit
         </Button>
+        <br/>
+        <br/>
+        {renderInsertResults()}
       </Form>
     </div>
   );
