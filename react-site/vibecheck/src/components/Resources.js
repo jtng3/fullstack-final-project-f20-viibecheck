@@ -14,6 +14,9 @@ function Resources(){
             <Card.Text>
                 <a id="resourceLink" href="https://www.rainn.org/">RAINN</a>
                 <p>The nation's largest anti-sexual violence organization. They operate the National Sexual Assault Hotline, 800-656-HOPE</p>
+
+                <a id="resourceLink" href="https://www.plannedparenthood.org/learn/relationships/sexual-consent">Planned Parenthood</a>
+                <p>Planned Parenthood delivers vital reproductive health care, sex education, and information to millions of people worldwide. </p>
             </Card.Text>
           </Card.Body>
         </Card>
