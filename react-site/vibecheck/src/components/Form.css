@@ -12,6 +12,21 @@ Button#submit {
 }
 .alert-custom-medium{
   margin-top: 18px;
-  background-color:coral;
+  background-color:#E2A234;
   color: brown;
+}
+.alert-custom-high{
+  margin-top:18px;
+  background-color: #DA502E;
+  color: #5F1502;
+}
+.alert-custom-neutral{
+  margin-top:18px;
+  background-color: #C9C4BC;
+  color: #2C2B2A;
+}
+.alert-custom-low{
+  margin-top:18px;
+  background-color: #E8E874;
+  color: #89891F;
 }
