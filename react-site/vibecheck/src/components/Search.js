@@ -43,7 +43,7 @@ function Search() {
     let content = (
       <div>
         Please submit a search. We search our database for any reports that
-        match both the name and phone number you provided and indicated a
+        match both the name and phone number provided and indicate a
         possible risk level.
       </div>
     );
@@ -56,25 +56,25 @@ function Search() {
     function riskDisplay() {
       if (resultsLength >= 2 && resultsLength <= 3) {
         return (
-          <div>Our records indicate that this individual may be SOME RISK</div>
+          <div>Our records indicate that this profile may be SOME RISK</div>
         );
       } else if (resultsLength >= 4 && resultsLength <= 5) {
         return (
           <div>
-            Our records indicate that this individual may be MEDIUM RISK
+            Our records indicate that this profile may be MEDIUM RISK
           </div>
         );
       } else if (resultsLength > 5) {
         return (
           <div>
-            Our records indicate that this individual is may be HIGH RISK
+            Our records indicate that this profile is may be HIGH RISK
           </div>
         );
       } else {
         return (
           <div>
             Our records do not contain enough information to provide a risk
-            assessment for this individual.
+            assessment for this profile.
           </div>
         );
       }
