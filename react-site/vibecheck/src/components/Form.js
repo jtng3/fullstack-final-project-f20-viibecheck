@@ -166,7 +166,7 @@ function VibeForm() {
               <LocationSelect updateLocation={updateLocation} />
             </div>
             <div className="col-md">
-              <Phone updatePhone={updatePhone} />
+              <Phone setPhone={setPhone} phone={phone} />
             </div>
             <div className="col-md">
               <Year updateYear={updateYear} />

@@ -10,8 +10,12 @@ function NavigationBar(props) {
       <Button variant="dark" value="About" onClick={props.pageSelection}>
         About
       </Button>
-      <Button variant="dark" value="Search" onClick={props.pageSelection}>Search</Button>
-      <Button variant="dark" value="New Report" onClick={props.pageSelection}>New Report</Button>
+      <Button variant="dark" value="Search" onClick={props.pageSelection}>
+        Search
+      </Button>
+      <Button variant="dark" value="New Report" onClick={props.pageSelection}>
+        New Report
+      </Button>
       <Button variant="dark">Resources</Button>
     </Navbar>
   );
