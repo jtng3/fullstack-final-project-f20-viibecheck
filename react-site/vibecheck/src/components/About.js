@@ -16,7 +16,7 @@ function About(){
     return (
         <Card id="text-card">
           <Card.Body>
-            <Card.Title>VibeCheck</Card.Title>
+            <Card.Title>About &nbsp;&nbsp; v i i b e c h e c k</Card.Title>
             <Card.Text>
               Vibecheck is our final project for CS 465P.
               <br />
@@ -40,9 +40,10 @@ function About(){
               <br />
               <br />
               If you submit a report, we don't collect or store any information
-              about you, it's fully anonymous for your protection.
+              about you, it is fully anonymous for your protection.
               <br />
-              As a consequence of this, reports cannot be verified.
+              <br />
+              As a consequence, reports cannot be verified.
               <br />
               <br />
               <Button variant="outline-secondary" onClick={openQuiz}>
