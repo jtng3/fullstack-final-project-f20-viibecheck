@@ -43,7 +43,7 @@ function VibeForm() {
     console.log("InsertResults:  " + JSON.stringify(insertedReport));
 
     function insertDisplay() {
-      return insertedReport;
+      return insertedReport.message;
     }
 
     if (repInsertLoading) {
@@ -57,7 +57,15 @@ function VibeForm() {
       !repInsertError &&
       insertedReport !== undefined
     ) {
+<<<<<<< HEAD
       content = <div className="alert alert-success">{insertDisplay()}</div>;
+=======
+      if(insertedReport.object === true){
+        content = <div class="alert alert-success">{insertDisplay()}</div>;
+      }else{
+        content = <div class="alert alert-warning">{insertDisplay()}</div>;
+      }
+>>>>>>> origin/main
     } else if (!repInsertLoading && repInsertError) {
       content = <div className="alert alert-danger">Insert Failed.</div>;
     }

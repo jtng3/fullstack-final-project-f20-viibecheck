@@ -5,6 +5,7 @@ import axios from "axios";
 import Name from "./form-components/Name";
 import Phone from "./form-components/Phone";
 
+
 function Search() {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
@@ -56,23 +57,23 @@ function Search() {
     function riskDisplay() {
       if (resultsLength >= 2 && resultsLength <= 3) {
         return (
-          <div>Our records indicate that this profile may be SOME RISK</div>
+          <div class="alert alert-custom-low fade in alert-dismissable show" role="alert">Our records indicate that this individual may be <strong>SOME RISK</strong></div>
         );
       } else if (resultsLength >= 4 && resultsLength <= 5) {
         return (
-          <div>
-            Our records indicate that this profile may be MEDIUM RISK
+          <div class="alert alert-custom-medium fade in alert-dismissable show" role="alert">
+            Our records indicate that this individual may be <strong>MEDIUM RISK</strong>
           </div>
         );
       } else if (resultsLength > 5) {
         return (
-          <div>
-            Our records indicate that this profile is may be HIGH RISK
+          <div class="alert alert-custom-high fade in alert-dismissable show" role="alert">
+            Our records indicate that this individual is may be <strong>HIGH RISK</strong>
           </div>
         );
       } else {
         return (
-          <div>
+          <div class="alert alert-custom-neutral fade in alert-dismissable show" role="alert">
             Our records do not contain enough information to provide a risk
             assessment for this profile.
           </div>
@@ -105,9 +106,6 @@ function Search() {
   }
 
   function handleSubmit(event) {
-    alert(
-      "First Name: " + fName + "\nLast Name: " + lName + "\nPhone: " + phone
-    );
     event.preventDefault();
 
     const search = {
