@@ -1,4 +1,28 @@
-.jumbotron.jumbotron-custom-light{
-    background-color: #f9f8f4;
-    text-align:center;
+.jumbotron.jumbotron-custom-light {
+  background-color: #f9f8f4;
+}
+
+.caption {
+  color: #052f48;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.fries {
+  max-width: 400px;
+  display: block;
+  margin: auto;
+}
+
+/* xs */
+@media screen and (max-width: 575px) {
+  .fries {
+    max-width: 360px;
+  }
+}
+/* sm */
+@media screen and (min-width: 576px) and (max-width: 769px) {
+  .fries {
+    max-width: 360px;
+  }
 }
