@@ -10,7 +10,7 @@ function Phone(props) {
   return (
     <Form.Group id="phoneContainer">
       <PhoneInput
-        class="form-control mb-3"
+        className="form-control mb-3"
         country="US"
         placeholder=" Phone"
         value={props.phone}

@@ -48,7 +48,7 @@ function VibeForm() {
 
     if (repInsertLoading) {
       content = (
-        <div label="Loading..." class="alert alert-info">
+        <div label="Loading..." className="alert alert-info">
           LOADING...
         </div>
       );
@@ -57,9 +57,9 @@ function VibeForm() {
       !repInsertError &&
       insertedReport !== undefined
     ) {
-      content = <div class="alert alert-success">{insertDisplay()}</div>;
+      content = <div className="alert alert-success">{insertDisplay()}</div>;
     } else if (!repInsertLoading && repInsertError) {
-      content = <div class="alert alert-danger">Insert Failed.</div>;
+      content = <div className="alert alert-danger">Insert Failed.</div>;
     }
     return content;
   };

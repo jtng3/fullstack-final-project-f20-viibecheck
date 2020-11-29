@@ -15,15 +15,23 @@ function Home(props) {
   return (
     <Jumbotron className="jumbotron-custom-light">
       <div className="row">
-        <div className="col-8">
-          <h1 className="row m-2">What is Consent?</h1>
+        <div className="col-lg-1" />
+        <div className="col-lg-6">
+          <h1 className="row m-2 font-weight-bold font-italic">
+            What is Consent?
+          </h1>
+          
           <p className="row m-3">Take our short quiz today!</p>
           <p className="row m-2">
-            <Button className="col-3 m-1" variant="primary" onClick={openQuiz}>
+            <Button
+              className="col-md-4 m-1"
+              variant="primary"
+              onClick={openQuiz}
+            >
               Take the Quiz
             </Button>
             <Button
-              className="col-4 m-1"
+              className="col-md-6 m-1"
               variant="outline-secondary "
               value="About"
               onClick={props.pageSelection}
@@ -41,18 +49,15 @@ function Home(props) {
             </Modal>
           </p>
         </div>
-        <div class="col-3">
-          <div class="thumbnail">
-            <a href="https://i.pinimg.com/originals/60/57/7f/60577fc75851f253eb9c99fbab47690a.jpg">
-              <img
-                className="w-100"
-                src="https://i.pinimg.com/originals/60/57/7f/60577fc75851f253eb9c99fbab47690a.jpg"
-                alt="F.R.I.E.S"
-                rounded
-                fluid
-              />
-            </a>
-          </div>
+        <div className="col-lg-5 image">
+          <img
+            className="fries"
+            src="https://i.pinimg.com/originals/60/57/7f/60577fc75851f253eb9c99fbab47690a.jpg"
+            alt="F.R.I.E.S"
+            rounded="true"
+            fluid="true"
+          />
+          <div className="caption"> Credit: @catharsisproductions</div>
         </div>
       </div>
     </Jumbotron>

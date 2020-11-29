@@ -10,7 +10,8 @@ function App() {
   const [page, setPage] = useState("Home");
 
   function pageSelection(event) {
-    setPage(event.target.value);
+      console.log("PAGE CHANGE!!" + event.currentTarget.value)
+    setPage(event.currentTarget.value);
   }
 
   function display() {
