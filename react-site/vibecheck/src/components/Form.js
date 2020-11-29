@@ -1,6 +1,6 @@
 import "./Form.css";
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Card, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import LocationSelect from "./form-components/LocationSelect";
 import Name from "./form-components/Name";
@@ -39,20 +39,24 @@ function VibeForm() {
   const [insertedReport, setInsertedReport] = useState(undefined);
 
   const renderInsertedReport = () => {
-    
-    let content = (
-      <div>
-      </div>
-    );
+    let content = <div></div>;
     console.log("InsertResults:  " + JSON.stringify(insertedReport));
 
-    function insertDisplay(){
+    function insertDisplay() {
       return insertedReport;
     }
-    
+
     if (repInsertLoading) {
-      content = <div label="Loading..." class="alert alert-info">LOADING...</div>;
-    } else if (!repInsertLoading && !repInsertError && insertedReport !== undefined) {
+      content = (
+        <div label="Loading..." class="alert alert-info">
+          LOADING...
+        </div>
+      );
+    } else if (
+      !repInsertLoading &&
+      !repInsertError &&
+      insertedReport !== undefined
+    ) {
       content = <div class="alert alert-success">{insertDisplay()}</div>;
     } else if (!repInsertLoading && repInsertError) {
       content = <div class="alert alert-danger">Insert Failed.</div>;
@@ -84,18 +88,18 @@ function VibeForm() {
   function updateDetails(e) {
     const value = e.target.name;
     //console.log("Old checkedDetails: " + checkedDetails);
-    //console.log("checked is: " + e.target.checked) 
+    //console.log("checked is: " + e.target.checked)
     if (e.target.checked) {
-      console.log("push value is: " + value)
+      console.log("push value is: " + value);
       checkedDetails.push(value);
-      console.log("pushed")
+      console.log("pushed");
     } else {
-      console.log("remove value is: " + value)
+      console.log("remove value is: " + value);
       const index = checkedDetails.indexOf(value);
-      console.log("remove index is: " + index)
+      console.log("remove index is: " + index);
       if (index > -1) {
         checkedDetails.splice(index, 1);
-        console.log("spliced")
+        console.log("spliced");
       }
     }
     //console.log("New checkedDetails: " + checkedDetails);
@@ -132,52 +136,55 @@ function VibeForm() {
       work: work,
       school: school,
       details: details,
-
     };
     setRepInsertLoading(true);
 
-    axios.post("http://localhost:8080/createincident", { report })
-    .then((res) => {
+    axios
+      .post("http://localhost:8080/createincident", { report })
+      .then((res) => {
         console.log(res.data);
         setInsertedReport(res.data);
         setRepInsertError(null);
         setRepInsertLoading(false);
       })
-    .catch((err) => {
+      .catch((err) => {
         console.warn(err);
         setRepInsertError(err);
         setRepInsertLoading(false);
-    })
+      });
   }
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
-        <Name updateFName={updateFName} updateLName={updateLName} />
+    <Card id="form-card">
+      <Card.Body>
+        <Card.Title>New Incident Report</Card.Title>
+        <Form onSubmit={handleSubmit}>
+          <Name updateFName={updateFName} updateLName={updateLName} />
 
-        <div className="form-row">
-          <div className="col-md">
-            <LocationSelect updateLocation={updateLocation} />
+          <div className="form-row">
+            <div className="col-md">
+              <LocationSelect updateLocation={updateLocation} />
+            </div>
+            <div className="col-md">
+              <Phone updatePhone={updatePhone} />
+            </div>
+            <div className="col-md">
+              <Year updateYear={updateYear} />
+            </div>
           </div>
-          <div className="col-md">
-            <Phone updatePhone={updatePhone} />
-          </div>
-          <div className="col-md">
-            <Year updateYear={updateYear} />
-          </div>
-        </div>
 
-        <WorkSchool updateWork={updateWork} updateSchool={updateSchool} />
-        <Details updateDetails={updateDetails} />
+          <WorkSchool updateWork={updateWork} updateSchool={updateSchool} />
+          <Details updateDetails={updateDetails} />
 
-        <Button id="submit" type="submit" value="Submit">
-          Submit
-        </Button>
-        <br/>
-        <br/>
-        {renderInsertedReport()}
-      </Form>
-    </div>
+          <Button id="submit" type="submit" value="Submit">
+            Submit
+          </Button>
+          <br />
+          <br />
+          {renderInsertedReport()}
+        </Form>
+      </Card.Body>
+    </Card>
   );
 }
 
