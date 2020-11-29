@@ -71,6 +71,7 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
                     responseMessage = "The record is exists in database";
                     console.log(responseMessage);
                     response = Response(responseMessage, result);
+                    console.log("#ofReport=" + result.length)
                     res.send(response);
                 }
 
@@ -81,6 +82,8 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
         
         var report = req.body.report;
         console.log(report);
+        var message = "";
+        var response = null;
         let newIncident = Incident(report.fName, report.lName, report.state, report.phone, report.year, report.work, report.school, report.details);
         var query = {'fname' : report.fName,'lname': report.lName, 'state' : report.state, 'phone': report.phone, 'year': report.year, 'work' : report.work, 'school' : report.school, 'details' : report.details };
         db.collection('Report').findOne(query)
@@ -92,9 +95,13 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
                                             if(err) throw err;
                                             console.log('one document inserted');
                                         })
-                                        res.send("Insert an Incident related with Perp succesfully!!!");
+                                        message = "Insert an Incident related with Perp succesfully!!!";
+                                        response = Response(message,true);
+                                        res.send(response);
                                     }else{
-                                        res.send("A report has been inserted to the database.");
+                                        message = "A report has been inserted to the database.";
+                                        response = Response(message,false);
+                                        res.send(response);
                                     }
                                 })
         
