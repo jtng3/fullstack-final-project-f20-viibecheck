@@ -85,26 +85,14 @@ mongodbClient.connect(mongodb_connection_string,{native_parser: true, useUnified
         var message = "";
         var response = null;
         let newIncident = Incident(report.fName, report.lName, report.state, report.phone, report.year, report.work, report.school, report.details);
-        var query = {'fname' : report.fName,'lname': report.lName, 'state' : report.state, 'phone': report.phone, 'year': report.year, 'work' : report.work, 'school' : report.school, 'details' : report.details };
-        db.collection('Report').findOne(query)
-                                .then((result) => {
-                                    if(!result){
-                                        console.log(result);
-                                        // No record found in database, insert new report
-                                        db.collection('Report').insertOne(newIncident, (err, res) => {
-                                            if(err) throw err;
-                                            console.log('one document inserted');
-                                        })
-                                        message = "Insert an Incident related with Perp succesfully!!!";
-                                        response = Response(message,true);
-                                        res.send(response);
-                                    }else{
-                                        message = "A report has been inserted to the database.";
-                                        response = Response(message,false);
-                                        res.send(response);
-                                    }
-                                })
         
+        db.collection('Report').insertOne(newIncident, (err, res) => {
+            if(err) throw err;
+            console.log('one document inserted');
+        })
+        message = "Insert an Incident related with Perp succesfully!!!";
+        response = Response(message,true);
+        res.send(response);
         
         
     })
