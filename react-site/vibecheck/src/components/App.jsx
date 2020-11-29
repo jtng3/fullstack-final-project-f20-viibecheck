@@ -5,8 +5,10 @@ import VibeForm from "./Form.js";
 import Search from "./Search";
 import About from "./About";
 import Home from "./Home";
+import Resources from "./Resources";
 
 function App() {
+
   const [page, setPage] = useState("Home");
 
   function pageSelection(event) {
@@ -24,15 +26,16 @@ function App() {
       return <Search />;
     } else if (page === "New Report") {
       return <VibeForm />;
+    } else if (page === "Resources") {
+      return <Resources />;
     }
   }
 
   return (
     <>
-      <NavigationBar pageSelection={pageSelection} />
-      {display()}
+        <NavigationBar pageSelection={pageSelection} />
+        {display()}
     </>
-  );
-}
+)};
 
 export default App;

@@ -1,6 +1,7 @@
 import "./Form.css";
 import React, { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import Collapsible from 'react-collapsible';
 import axios from "axios";
 import LocationSelect from "./form-components/LocationSelect";
 import Name from "./form-components/Name";
@@ -179,8 +180,9 @@ function VibeForm() {
           </div>
 
           <WorkSchool updateWork={updateWork} updateSchool={updateSchool} />
-          <Details updateDetails={updateDetails} />
-
+          <Collapsible contentHiddenWhenClosed="true" trigger="Add Specific Details? These are entirely optional.">
+            <Details updateDetails={updateDetails} />
+          </Collapsible>
           <Button id="submit" type="submit" value="Submit">
             Submit
           </Button>

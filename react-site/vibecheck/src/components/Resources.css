@@ -1,0 +1,12 @@
+#alert911 {
+    background-color: yellow;
+    padding: 5px;
+    text-align: center;
+    outline: solid 2px black;
+    margin-bottom: 10px;
+    margin-top: -50px;
+}
+
+#resourceLink {
+    text-decoration: underline;
+}
