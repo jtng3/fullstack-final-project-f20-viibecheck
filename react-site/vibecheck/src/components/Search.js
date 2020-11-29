@@ -1,6 +1,6 @@
 import "./Form.css";
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Card, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import Name from "./form-components/Name";
 import Phone from "./form-components/Phone";
@@ -82,7 +82,11 @@ function Search() {
 
     if (resFetchLoading) {
       content = <div label="Loading...">LOADING...</div>;
-    } else if (!resFetchLoading && !resFetchError && searchResults !== undefined) {
+    } else if (
+      !resFetchLoading &&
+      !resFetchError &&
+      searchResults !== undefined
+    ) {
       content = <div>{riskDisplay()}</div>;
     } else if (!resFetchLoading && resFetchError) {
       content = <div>Search Failed.</div>;
@@ -102,12 +106,7 @@ function Search() {
 
   function handleSubmit(event) {
     alert(
-      "First Name: " +
-        fName +
-        "\nLast Name: " +
-        lName +
-        "\nPhone: " +
-        phone
+      "First Name: " + fName + "\nLast Name: " + lName + "\nPhone: " + phone
     );
     event.preventDefault();
 
@@ -148,21 +147,24 @@ function Search() {
   }
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
-        <Name updateFName={updateFName} updateLName={updateLName} />
+    <Card id="search-card">
+      <Card.Body>
+        <Card.Title>VibeCheck Search</Card.Title>
+        <Form onSubmit={handleSubmit}>
+          <Name updateFName={updateFName} updateLName={updateLName} />
 
-        <div className="form-row">
-          <div className="col">
-            <Phone updatePhone={updatePhone} />
+          <div className="form-row">
+            <div className="col">
+              <Phone updatePhone={updatePhone} />
+            </div>
           </div>
-        </div>
-        <Button id="submit" type="submit" value="Submit">
-          Search
-        </Button>
-        {renderSearchResults()}
-      </Form>
-    </div>
+          <Button id="submit" type="submit" value="Submit">
+            Search
+          </Button>
+          {renderSearchResults()}
+        </Form>
+      </Card.Body>
+    </Card>
   );
 }
 
