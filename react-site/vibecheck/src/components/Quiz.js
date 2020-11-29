@@ -88,6 +88,8 @@ class Quiz extends React.Component {
         if(isCorrect) {
             alert("Correct!");
             this.setState({ score: this.state.score + 1 })
+        }else{
+            alert("Incorrect!");
         }
         if(this.state.currentQuestion < questions.length-1 ) {
             var nextQuestion = this.state.currentQuestion + 1;

@@ -22,6 +22,7 @@ import Details from "./form-components/Details";
 
 //for some reason this has to be in the upper scope, which I am not sure I like.
 let checkedDetails = [];
+
 function VibeForm() {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
@@ -32,34 +33,28 @@ function VibeForm() {
   const [school, setSchool] = useState("world");
   const [details, setDetails] = useState("");
 
-  //handle search results
-  const [resFetchLoading, setResFetchLoading] = useState(false);
-  const [resFetchError, setResFetchError] = useState(null);
-  const [insertResults, setInsertResults] = useState(undefined);
-  //instead of here
-  //var checkedDetails = [];
+  //handle report insert status
+  const [repInsertLoading, setRepInsertLoading] = useState(false);
+  const [repInsertError, setRepInsertError] = useState(null);
+  const [insertedReport, setInsertedReport] = useState(undefined);
 
-  const renderInsertResults = () => {
+  const renderInsertedReport = () => {
     
     let content = (
       <div>
-        
       </div>
     );
-    console.log("InsertResults:  " + JSON.stringify(insertResults));
-
-    
+    console.log("InsertResults:  " + JSON.stringify(insertedReport));
 
     function insertDisplay(){
-      return insertResults;
-    
+      return insertedReport;
     }
     
-    if (resFetchLoading) {
+    if (repInsertLoading) {
       content = <div label="Loading..." class="alert alert-info">LOADING...</div>;
-    } else if (!resFetchLoading && !resFetchError && insertResults !== undefined) {
+    } else if (!repInsertLoading && !repInsertError && insertedReport !== undefined) {
       content = <div class="alert alert-success">{insertDisplay()}</div>;
-    } else if (!resFetchLoading && resFetchError) {
+    } else if (!repInsertLoading && repInsertError) {
       content = <div class="alert alert-danger">Insert Failed.</div>;
     }
     return content;
@@ -139,19 +134,19 @@ function VibeForm() {
       details: details,
 
     };
-    setResFetchLoading(true);
+    setRepInsertLoading(true);
 
     axios.post("http://localhost:8080/createincident", { report })
     .then((res) => {
         console.log(res.data);
-        setInsertResults(res.data);
-        setResFetchError(null);
-        setResFetchLoading(false);
+        setInsertedReport(res.data);
+        setRepInsertError(null);
+        setRepInsertLoading(false);
       })
     .catch((err) => {
         console.warn(err);
-        setResFetchError(err);
-        setResFetchLoading(false);
+        setRepInsertError(err);
+        setRepInsertLoading(false);
     })
   }
 
@@ -180,7 +175,7 @@ function VibeForm() {
         </Button>
         <br/>
         <br/>
-        {renderInsertResults()}
+        {renderInsertedReport()}
       </Form>
     </div>
   );
