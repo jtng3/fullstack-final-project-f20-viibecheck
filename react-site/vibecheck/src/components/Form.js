@@ -191,7 +191,7 @@ function VibeForm() {
           <Button disabled={submitStatus} id="submit" type="submit" value="Submit">
             Submit
           </Button>
-          <Button id="reset" type="reset" value="Reset" onClick={() => setSubmitStatus(false)}>
+          <Button id="reset" type="reset" value="Reset" variant="outline-secondary" onClick={() => setSubmitStatus(false)}>
             Reset
           </Button>
           <br />
