@@ -33,6 +33,7 @@ function VibeForm() {
   const [work, setWork] = useState("hello");
   const [school, setSchool] = useState("world");
   const [details, setDetails] = useState("");
+  const [submitStatus, setSubmitStatus] = useState(false);
 
   //handle report insert status
   const [repInsertLoading, setRepInsertLoading] = useState(false);
@@ -41,6 +42,7 @@ function VibeForm() {
 
   const renderInsertedReport = () => {
     let content = <div></div>;
+    console.log(submitStatus);
     console.log("InsertResults:  " + JSON.stringify(insertedReport));
 
     function insertDisplay() {
@@ -112,6 +114,9 @@ function VibeForm() {
   }
 
   function handleSubmit(event) {
+
+    setSubmitStatus(true);
+
     console.log(
       "First Name: " +
         fName +
@@ -179,11 +184,14 @@ function VibeForm() {
           </div>
 
           <WorkSchool updateWork={updateWork} updateSchool={updateSchool} />
-          <Collapsible contentHiddenWhenClosed="true" trigger="Add Specific Details? These are entirely optional.">
+          <Collapsible trigger="Add Specific Details? These are entirely optional.">
             <Details updateDetails={updateDetails} />
           </Collapsible>
-          <Button id="submit" type="submit" value="Submit">
+          <Button disabled={submitStatus} id="submit" type="submit" value="Submit">
             Submit
+          </Button>
+          <Button id="reset" type="reset" value="Reset" variant="outline-secondary" onClick={() => setSubmitStatus(false)}>
+            Reset
           </Button>
           <br />
           <br />
