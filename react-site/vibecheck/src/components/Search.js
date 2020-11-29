@@ -44,7 +44,7 @@ function Search() {
     let content = (
       <div>
         Please submit a search. We search our database for any reports that
-        match both the name and phone number you provided and indicated a
+        match both the name and phone number provided and indicate a
         possible risk level.
       </div>
     );
@@ -75,7 +75,7 @@ function Search() {
         return (
           <div>
             Our records do not contain enough information to provide a risk
-            assessment for this individual.
+            assessment for this profile.
           </div>
         );
       }
