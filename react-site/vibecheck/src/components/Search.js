@@ -44,7 +44,7 @@ function Search() {
       <div>
         Please submit a search. We search our database for any reports that
         match both the name and phone number you provided and indicated a
-        possible risk level.{" "}
+        possible risk level.
       </div>
     );
 
@@ -74,7 +74,7 @@ function Search() {
         return (
           <div>
             Our records do not contain enough information to provide a risk
-            assessment for this individual.{" "}
+            assessment for this individual.
           </div>
         );
       }
@@ -120,7 +120,7 @@ function Search() {
     setResFetchLoading(true);
 
     axios
-      .post("https://localhost:8080/search", { search })
+      .post("http://localhost:8080/search", { search })
       .then((res) => {
         console.log("axios response: " + JSON.stringify(res));
         if (res.statusText !== "OK") {
@@ -155,7 +155,7 @@ function Search() {
 
           <div className="form-row">
             <div className="col">
-              <Phone updatePhone={updatePhone} />
+              <Phone setPhone={setPhone} phone={phone} />
             </div>
           </div>
           <Button id="submit" type="submit" value="Submit">
