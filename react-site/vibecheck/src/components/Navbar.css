@@ -1,0 +1,36 @@
+/* xs */ 
+   @media screen and (max-width: 575px) {
+  .bi {
+    margin-bottom: 2.5px;
+  }
+  .b-text {
+    display:inline-block;
+    padding-left: 7px;
+  }
+}
+/* sm */
+@media screen and (min-width: 576px) and (max-width: 769px) {
+  .b-text {
+    display: none;
+  }
+}
+/* md */
+@media screen and (min-width: 770px) and (max-width: 991px) {
+  .bi {
+    display: none;
+    visibility: hidden;
+  }
+}
+/* lg */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .bi {
+    display: none;
+  }
+}
+
+/* xl */
+@media screen and (min-width: 1200px) {
+  .bi {
+    display: none;
+  }
+}
