@@ -1,8 +1,5 @@
-import React from "react";
-import { Nav, Navbar, Button } from "react-bootstrap";
-//import Button from "@material-ui/core/Button";
-
-import "./Navbar.css";
+import React from 'react';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 
 function NavigationBar(props) {
   return (
@@ -116,7 +113,8 @@ function NavigationBar(props) {
             <Button
               className="m-2 text-button"
               color="primary"
-              value="New Report"
+              value="Resources"
+              onClick={props.pageSelection}
             >
               <svg
                 width="1em"
@@ -143,60 +141,5 @@ function NavigationBar(props) {
     </Navbar>
   );
 }
-export default NavigationBar;
 
-/*     <div className="container-fluid">
-      <nav className="bg-dark navbar-dark navbar-expand-lg navbar">
-        <Button
-          type="button"
-          data-target=".navbar-collapse"
-          data-toggle="collapse"
-          className="navbar-toggler"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </Button>
-        <div className="navbar-collapse collapse" id="collapseNavbar">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Button
-                className="m-2 text-button"
-                color="primary"
-                value="Home"
-                onClick={props.pageSelection}
-              >
-                <div className="b-text">Home</div>
-                <svg
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  className="bi bi-house-door-fill"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z" />
-                  <path
-                    fillRule="evenodd"
-                    d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
-                  />
-                </svg>
-              </Button>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="">
-                Dogs
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="">
-                Alpacas
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="">
-                Penguins
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div> */
+export default NavigationBar;
