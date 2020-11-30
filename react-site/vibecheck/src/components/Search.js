@@ -93,7 +93,7 @@ function Search() {
     ) {
       content = <div>{riskDisplay()}</div>;
     } else if (!resFetchLoading && resFetchError) {
-      content = <div>Search Failed.</div>;
+      content = <div class="alert alert-danger" role="alert">Search Failed.</div>;
     }
     return content;
   };
@@ -124,7 +124,7 @@ function Search() {
     setResFetchLoading(true);
 
     axios
-      .post("http://localhost:8080/search", { search })
+      .post("https://localhost:8080/search", { search })
       .then((res) => {
         console.log("axios response: " + JSON.stringify(res));
         if (res.statusText !== "OK") {
