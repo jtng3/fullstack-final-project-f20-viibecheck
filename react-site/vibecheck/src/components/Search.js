@@ -115,8 +115,8 @@ function Search() {
     event.preventDefault();
 
     const search = {
-      fName: fName,
-      lName: lName,
+      fName: fName.toUpperCase(),
+      lName: lName.toUpperCase(),
       phone: phone,
     };
 

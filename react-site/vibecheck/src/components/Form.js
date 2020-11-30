@@ -62,10 +62,9 @@ function VibeForm() {
       !repInsertError &&
       insertedReport !== undefined
     ) {
-
-      if(insertedReport.object === true){
+      if (insertedReport.object === true) {
         content = <div class="alert alert-success">{insertDisplay()}</div>;
-      }else{
+      } else {
         content = <div class="alert alert-warning">{insertDisplay()}</div>;
       }
     } else if (!repInsertLoading && repInsertError) {
@@ -82,9 +81,6 @@ function VibeForm() {
   }
   function updateLocation(event) {
     setLocation(event.target.value);
-  }
-  function updatePhone(event) {
-    setPhone(event.target.value);
   }
   function updateYear(event) {
     setYear(event.target.value);
@@ -141,8 +137,8 @@ function VibeForm() {
     event.preventDefault();
 
     const report = {
-      fName: fName,
-      lName: lName,
+      fName: fName.toUpperCase(),
+      lName: lName.toUpperCase(),
       state: location,
       phone: phone,
       year: year,
@@ -193,7 +189,7 @@ function VibeForm() {
           <Button disabled={submitStatus} id="submit" type="submit" value="Submit">
             Submit
           </Button>
-          <Button id="reset" type="reset" value="Reset" variant="outline-secondary" onClick={() => setSubmitStatus(false)}>
+          <Button id="reset" type="reset" value="Reset" variant="outline-secondary" onClick={() => {setSubmitStatus(false); setPhone(null)}}>
             Reset
           </Button>
           <br />
