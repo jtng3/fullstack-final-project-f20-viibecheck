@@ -33,6 +33,8 @@ function VibeForm() {
   const [work, setWork] = useState("hello");
   const [school, setSchool] = useState("world");
   const [details, setDetails] = useState("");
+
+  //this value is reversed, i.e. false is when form hasn't been submitted
   const [submitStatus, setSubmitStatus] = useState(false);
 
   //handle report insert status
