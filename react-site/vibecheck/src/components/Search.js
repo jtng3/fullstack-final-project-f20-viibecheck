@@ -16,6 +16,9 @@ function Search() {
   const [resFetchError, setResFetchError] = useState(null);
   const [searchResults, setSearchResults] = useState(undefined);
 
+  //this value is reversed, i.e. false is when form hasn't been submitted
+  const [submitStatus, setSubmitStatus] = useState(false);
+
   const testData = [
     {
       _id: "2834728374",
@@ -106,11 +109,14 @@ function Search() {
   }
 
   function handleSubmit(event) {
+
+    setSubmitStatus(true);
+
     event.preventDefault();
 
     const search = {
-      fName: fName,
-      lName: lName,
+      fName: fName.toUpperCase(),
+      lName: lName.toUpperCase(),
       phone: phone,
     };
 
@@ -156,8 +162,11 @@ function Search() {
               <Phone setPhone={setPhone} phone={phone} />
             </div>
           </div>
-          <Button id="submit" type="submit" value="Submit">
+          <Button disabled={submitStatus} id="submit" type="submit" value="Submit">
             Search
+          </Button>
+          <Button id="reset" type="reset" value="Reset" variant="outline-secondary" onClick={() => {setSubmitStatus(false); setPhone(null)}}>
+            Reset
           </Button>
           {renderSearchResults()}
         </Form>
