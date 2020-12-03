@@ -6,6 +6,7 @@ import Search from "./Search";
 import About from "./About";
 import Home from "./Home";
 import Resources from "./Resources";
+import Consent from "./Consent";
 
 function App() {
 
@@ -28,6 +29,8 @@ function App() {
       return <VibeForm />;
     } else if (page === "Resources") {
       return <Resources />;
+    } else if (page === "Consent") {
+      return <Consent />;
     }
   }
 

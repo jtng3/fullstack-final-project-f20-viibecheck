@@ -27,11 +27,11 @@ let checkedDetails = [];
 function VibeForm() {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
-  const [location, setLocation] = useState("AL");
+  const [location, setLocation] = useState("");
   const [phone, setPhone] = useState("");
   const [year, setYear] = useState("");
-  const [work, setWork] = useState("hello");
-  const [school, setSchool] = useState("world");
+  const [work, setWork] = useState("");
+  const [school, setSchool] = useState("");
   const [details, setDetails] = useState("");
 
   //this value is reversed, i.e. false is when form hasn't been submitted
@@ -149,7 +149,7 @@ function VibeForm() {
     setRepInsertLoading(true);
 
     axios
-      .post("https://localhost:8080/createincident", { report })
+      .post("http://localhost:8080/createincident", { report })
       .then((res) => {
         console.log(res.data);
         setInsertedReport(res.data);
