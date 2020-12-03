@@ -14,7 +14,7 @@ function LocationSelect(props) {
         onChange={props.updateLocation}
         required
       >
-        <option value="" disabled>
+        <option selected disabled>
           Incident Location
         </option>
         <option value="AL">AL</option>

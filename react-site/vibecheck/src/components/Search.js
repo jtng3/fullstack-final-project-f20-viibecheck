@@ -5,7 +5,6 @@ import axios from "axios";
 import Name from "./form-components/Name";
 import Phone from "./form-components/Phone";
 
-
 function Search() {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
@@ -47,8 +46,8 @@ function Search() {
     let content = (
       <div>
         Please submit a search. We search our database for any reports that
-        match both the name and phone number provided and indicate a
-        possible risk level.
+        match both the name and phone number provided and indicate a possible
+        risk level.
       </div>
     );
 
@@ -60,23 +59,40 @@ function Search() {
     function riskDisplay() {
       if (resultsLength >= 2 && resultsLength <= 3) {
         return (
-          <div class="alert alert-custom-low fade in alert-dismissable show" role="alert">Our records indicate that this individual may be <strong>SOME RISK</strong></div>
+          <div
+            class="alert alert-custom-low fade in alert-dismissable show"
+            role="alert"
+          >
+            Our records indicate that this individual may be{" "}
+            <strong>SOME RISK</strong>
+          </div>
         );
       } else if (resultsLength >= 4 && resultsLength <= 5) {
         return (
-          <div class="alert alert-custom-medium fade in alert-dismissable show" role="alert">
-            Our records indicate that this individual may be <strong>MEDIUM RISK</strong>
+          <div
+            class="alert alert-custom-medium fade in alert-dismissable show"
+            role="alert"
+          >
+            Our records indicate that this individual may be{" "}
+            <strong>MEDIUM RISK</strong>
           </div>
         );
       } else if (resultsLength > 5) {
         return (
-          <div class="alert alert-custom-high fade in alert-dismissable show" role="alert">
-            Our records indicate that this individual is may be <strong>HIGH RISK</strong>
+          <div
+            class="alert alert-custom-high fade in alert-dismissable show"
+            role="alert"
+          >
+            Our records indicate that this individual is may be{" "}
+            <strong>HIGH RISK</strong>
           </div>
         );
       } else {
         return (
-          <div class="alert alert-custom-neutral fade in alert-dismissable show" role="alert">
+          <div
+            class="alert alert-custom-neutral fade in alert-dismissable show"
+            role="alert"
+          >
             Our records do not contain enough information to provide a risk
             assessment for this profile.
           </div>
@@ -93,7 +109,11 @@ function Search() {
     ) {
       content = <div>{riskDisplay()}</div>;
     } else if (!resFetchLoading && resFetchError) {
-      content = <div class="alert alert-danger" role="alert">Search Failed.</div>;
+      content = (
+        <div class="alert alert-danger" role="alert">
+          Search Failed.
+        </div>
+      );
     }
     return content;
   };
@@ -109,7 +129,6 @@ function Search() {
   }
 
   function handleSubmit(event) {
-
     setSubmitStatus(true);
 
     event.preventDefault();
@@ -162,13 +181,27 @@ function Search() {
               <Phone setPhone={setPhone} phone={phone} />
             </div>
           </div>
-          <Button disabled={submitStatus} id="submit" type="submit" value="Submit">
+          <Button
+            disabled={submitStatus}
+            id="submit"
+            type="submit"
+            value="Submit"
+          >
             Search
           </Button>
-          <Button id="reset" type="reset" value="Reset" variant="outline-secondary" onClick={() => {setSubmitStatus(false); setPhone(null)}}>
+          <Button
+            id="reset"
+            type="reset"
+            value="Reset"
+            variant="outline-secondary"
+            onClick={() => {
+              setSubmitStatus(false);
+              setPhone(null);
+            }}
+          >
             Reset
           </Button>
-          {renderSearchResults()}
+          <div className="mt-2">{renderSearchResults()}</div>
         </Form>
       </Card.Body>
     </Card>

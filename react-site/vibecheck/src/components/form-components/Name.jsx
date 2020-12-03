@@ -5,7 +5,7 @@ function Name(props) {
   return (
         <Form.Group id="nameContainer">
           <div className="form-row mt-4 mb-4">
-            <div className="col-md">
+            <div className="col-md mt-1">
 {/*               <Form.Label htmlFor="fName">First Name:</Form.Label> */}
               <Form.Control
                 onChange={props.updateFName}
@@ -15,7 +15,7 @@ function Name(props) {
                 placeholder="First Name"
               ></Form.Control>
             </div>
-            <div className="col-md">
+            <div className="col-md mt-1">
 {/*               <Form.Label htmlFor="lName">Last Name:</Form.Label> */}
               <Form.Control
                 onChange={props.updateLName}
