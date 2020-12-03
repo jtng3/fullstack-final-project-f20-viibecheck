@@ -143,7 +143,7 @@ function Search() {
     setResFetchLoading(true);
 
     axios
-      .post("https://localhost:8080/search", { search })
+      .post("http://localhost:8080/search", { search })
       .then((res) => {
         console.log("axios response: " + JSON.stringify(res));
         if (res.statusText !== "OK") {

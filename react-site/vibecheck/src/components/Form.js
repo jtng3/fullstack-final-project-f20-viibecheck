@@ -149,7 +149,7 @@ function VibeForm() {
     setRepInsertLoading(true);
 
     axios
-      .post("https://localhost:8080/createincident", { report })
+      .post("http://localhost:8080/createincident", { report })
       .then((res) => {
         console.log(res.data);
         setInsertedReport(res.data);

@@ -13,6 +13,7 @@ function Name(props) {
                 name="fName"
                 id="fNameInput"
                 placeholder="First Name"
+                required
               ></Form.Control>
             </div>
             <div className="col-md mt-1">
@@ -23,6 +24,7 @@ function Name(props) {
                 name="lName"
                 id="lNameInput"
                 placeholder="Last Name"
+                required
               ></Form.Control>
             </div>
           </div>
