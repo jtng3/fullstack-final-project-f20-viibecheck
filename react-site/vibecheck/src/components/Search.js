@@ -172,7 +172,7 @@ function Search() {
   return (
     <Card id="search-card">
       <Card.Body>
-        <Card.Title>VibeCheck Search</Card.Title>
+        <Card.Title>viibecheck Search</Card.Title>
         <Form onSubmit={handleSubmit}>
           <Name updateFName={updateFName} updateLName={updateLName} />
 
