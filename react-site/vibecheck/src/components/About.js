@@ -18,7 +18,7 @@ function About(){
           <Card.Body>
             <Card.Title>About &nbsp;&nbsp; v i i b e c h e c k</Card.Title>
             <Card.Text>
-              Vibecheck is our final project for CS 465P.
+              Viibecheck is our final project for CS 465P.
               <br />
               It was created by Michael Jenkins, Nhan Le, and Jaeger Tang.
               <br />
