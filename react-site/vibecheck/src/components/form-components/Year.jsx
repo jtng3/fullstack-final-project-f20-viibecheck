@@ -14,6 +14,7 @@ function Year(props) {
                 id="yearInput"
                 placeholder="Incident Year (YYYY)"
                 pattern="[0-9]{4}"
+                required
               ></Form.Control>
             </Form.Group>
 

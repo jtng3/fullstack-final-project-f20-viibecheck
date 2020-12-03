@@ -33,7 +33,7 @@ function Home(props) {
             <Button
               className="col-md-6 m-1"
               variant="outline-secondary "
-              value="About"
+              value="Consent"
               onClick={props.pageSelection}
             >
               Learn More On Consent
