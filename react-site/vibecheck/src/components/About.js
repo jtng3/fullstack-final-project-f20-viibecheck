@@ -28,7 +28,7 @@ function About(){
               causing problematic people to continue unopposed.
               <br />
               <br />
-              Vibecheck was created to play a small role in remedying this. If
+              Viibecheck was created to play a small role in remedying this. If
               someone has made you feel unsafe or harmed you in some manner,
               their basic information can be submitted to our database.
               <br />
